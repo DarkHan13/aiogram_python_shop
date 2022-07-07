@@ -86,7 +86,6 @@ async def filter_refill_callback(call: CallbackQuery, state: FSMContext):
 # Открытие главного меню
 @dp.message_handler(text=['⬅ Главное меню', '/start'], state="*")
 async def main_start(message: Message, state: FSMContext):
-    await message.answer(f"<tg-spoiler>ТЫ ПИДР</tg-spoiler>")
     await state.finish()
 
     await message.answer("🔸 Бот готов к использованию.\n"
