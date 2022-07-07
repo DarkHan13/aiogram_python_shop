@@ -2,7 +2,7 @@
 import asyncio
 import json
 import time
-
+from tgbot.services.myQiwiP2P import myBill
 from aiohttp import ClientConnectorCertificateError
 from async_class import AsyncClass
 from pyqiwip2p import QiwiP2P
@@ -217,7 +217,8 @@ class QiwiAPI(AsyncClass):
             receipt = str(int(time.time() * 100))
             if get_way == "Form":
                 qiwi = QiwiP2P(self.secret)
-                bill = qiwi.bill(bill_id=receipt, amount=get_amount, comment=receipt, currency='KZT')
+                bill = myBill(auth_key=self.secret, bill_id=receipt, amount=get_amount, comment=receipt, currency='KZT')
+                # bill = qiwi.bill(bill_id=receipt, amount=get_amount, comment=receipt, currency='KZT')
                 send_requests = bill.pay_url
 
                 return_message = f"<b>🆙 Пополнение баланса</b>\n" \
