@@ -126,7 +126,7 @@ def get_position_admin(position_id):
     get_message = f"<b>📁 Позиция: <code>{get_position['position_name']}</code></b>\n" \
                   f"➖➖➖➖➖➖➖➖➖➖➖➖➖\n" \
                   f"🗃 Категория: <code>{get_category['category_name']}</code>\n" \
-                  f"💰 Стоимость: <code>{get_position['position_price']}₽</code>\n" \
+                  f"💰 Стоимость: <code>{get_position['position_price']}₸</code>\n" \
                   f"📦 Количество: <code>{len(get_items)}шт</code>\n" \
                   f"📸 Изображение: {photo_text}\n" \
                   f"📜 Описание: {text_description}"
@@ -149,7 +149,7 @@ def open_profile_my(user_id):
     return f"<b>👤 Ваш профиль:</b>\n" \
            f"➖➖➖➖➖➖➖➖➖➖\n" \
            f"🆔 ID: <code>{get_user['user_id']}</code>\n" \
-           f"💰 Баланс: <code>{get_user['user_balance']}₽</code>\n" \
+           f"💰 Баланс: <code>{get_user['user_balance']}₸</code>\n" \
            f"🎁 Куплено товаров: <code>{count_items}шт</code>\n" \
            f"🕰 Регистрация: <code>{get_user['user_date'].split(' ')[0]} ({convert_day(how_days)})</code>"
 
@@ -173,8 +173,8 @@ def open_profile_search(user_id):
            f"Ⓜ Имя: <a href='tg://user?id={get_user['user_id']}'>{get_user['user_name']}</a>\n" \
            f"🕰 Регистрация: <code>{get_user['user_date']} ({convert_day(how_days)})</code>\n" \
            f"➖➖➖➖➖➖➖➖➖➖➖➖➖\n" \
-           f"💰 Баланс: <code>{get_user['user_balance']}₽</code>\n" \
-           f"💰 Всего пополнено: <code>{get_user['user_refill']}₽</code>\n" \
+           f"💰 Баланс: <code>{get_user['user_balance']}₸</code>\n" \
+           f"💰 Всего пополнено: <code>{get_user['user_refill']}₸</code>\n" \
            f"🎁 Куплено товаров: <code>{count_items}шт</code>"
 
 
@@ -216,13 +216,13 @@ def get_statisctics():
               f"👤 Пользователей: <code>{len(get_users)}</code>\n" \
               f"➖➖➖➖➖➖➖➖➖➖➖➖➖\n" \
               f"<b>🔶 Средства 🔶</b>\n" \
-              f"💸 Продаж за 24 часа: <code>{show_profit_day}₽</code>\n" \
-              f"💸 Продаж за неделю: <code>{show_profit_week}₽</code>\n" \
-              f"💸 Продаж за всё время: <code>{show_profit_all}₽</code>\n" \
-              f"💳 Средств в системе: <code>{show_money_users}₽</code>\n" \
-              f"💰 Пополнений за 24 часа: <code>{show_refill_day}₽</code>\n" \
-              f"💰 Пополнений за неделю: <code>{show_refill_week}₽</code>\n" \
-              f"💰 Пополнений за всё время: <code>{show_refill_all}₽</code>\n" \
+              f"💸 Продаж за 24 часа: <code>{show_profit_day}₸</code>\n" \
+              f"💸 Продаж за неделю: <code>{show_profit_week}₸</code>\n" \
+              f"💸 Продаж за всё время: <code>{show_profit_all}₸</code>\n" \
+              f"💳 Средств в системе: <code>{show_money_users}₸</code>\n" \
+              f"💰 Пополнений за 24 часа: <code>{show_refill_day}₸</code>\n" \
+              f"💰 Пополнений за неделю: <code>{show_refill_week}₸</code>\n" \
+              f"💰 Пополнений за всё время: <code>{show_refill_all}₸</code>\n" \
               f"➖➖➖➖➖➖➖➖➖➖➖➖➖\n" \
               f"<b>🔶 Прочее 🔶</b>\n" \
               f"🎁 Товаров: <code>{len(get_items)}шт</code>\n" \

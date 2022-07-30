@@ -102,7 +102,7 @@ async def user_history(call: CallbackQuery, state: FSMContext):
             link_items = await upload_text(call, purchases['purchase_item'])
 
             await call.message.answer(f"<b>🧾 Чек: <code>#{purchases['purchase_receipt']}</code></b>\n"
-                                      f"🎁 Товар: <code>{purchases['purchase_position_name']} | {purchases['purchase_count']}шт | {purchases['purchase_price']}₽</code>\n"
+                                      f"🎁 Товар: <code>{purchases['purchase_position_name']} | {purchases['purchase_count']}шт | {purchases['purchase_price']}₸</code>\n"
                                       f"🕰 Дата покупки: <code>{purchases['purchase_date']}</code>\n"
                                       f"🔗 Товары: <a href='{link_items}'>кликабельно</a>")
 
@@ -192,7 +192,7 @@ async def user_purchase_position_open(call: CallbackQuery, state: FSMContext):
                f"➖➖➖➖➖➖➖➖➖➖➖➖➖\n" \
                f"🏷 Название: <code>{get_position['position_name']}</code>\n" \
                f"🗃 Категория: <code>{get_category['category_name']}</code>\n" \
-               f"💰 Стоимость: <code>{get_position['position_price']}₽</code>\n" \
+               f"💰 Стоимость: <code>{get_position['position_price']}₸</code>\n" \
                f"📦 Количество: <code>{len(get_items)}шт</code>\n" \
                f"🏬 Город: <code>{town_name}</code>" \
                f"{text_description}"
@@ -279,7 +279,7 @@ async def user_purchase_select(call: CallbackQuery, state: FSMContext):
                                       f"➖➖➖➖➖➖➖➖➖➖➖➖➖\n"
                                       f"🎁 Товар: <code>{get_position['position_name']}</code>\n"
                                       f"📦 Количество: <code>1шт</code>\n"
-                                      f"💰 Сумма к покупке: <code>{price}₽</code>",
+                                      f"💰 Сумма к покупке: <code>{price}₸</code>",
                                       reply_markup=products_confirm_finl(position_id, 1, town_id=town_id, price=price))
         elif get_count >= 1 and discount_str == "None":
             await state.update_data(here_cache_position_id=position_id)
@@ -292,8 +292,8 @@ async def user_purchase_select(call: CallbackQuery, state: FSMContext):
                                       f"▶ От <code>1</code> до <code>{get_count}</code>\n"
                                       f"➖➖➖➖➖➖➖➖➖➖➖➖➖\n"
                                       f"🎁 Товар: <code>{get_position['position_name']}</code> - <code>"
-                                      f"{get_position['position_price']}₽</code>\n"
-                                      f"💰 Ваш баланс: <code>{get_user['user_balance']}₽</code>")
+                                      f"{get_position['position_price']}₸</code>\n"
+                                      f"💰 Ваш баланс: <code>{get_user['user_balance']}₸</code>")
         else:
             print(f"{get_count} {discount_str}")
             await call.answer("🎁 Товаров нет в наличии")
@@ -325,8 +325,8 @@ async def user_purchase_select_count(message: Message, state: FSMContext):
                    f"🎁 Введите количество товаров для покупки\n" \
                    f"▶ От <code>1</code> до <code>{get_count}</code>\n" \
                    f"➖➖➖➖➖➖➖➖➖➖➖➖➖\n" \
-                   f"🎁 Товар: <code>{get_position['position_name']}</code> - <code>{get_position['position_price']}₽</code>\n" \
-                   f"💰 Ваш баланс: <code>{get_user['user_balance']}₽</code>"
+                   f"🎁 Товар: <code>{get_position['position_name']}</code> - <code>{get_position['position_price']}₸</code>\n" \
+                   f"💰 Ваш баланс: <code>{get_user['user_balance']}₸</code>"
 
     if message.text.isdigit():
         get_count = int(message.text)
@@ -340,7 +340,7 @@ async def user_purchase_select_count(message: Message, state: FSMContext):
                                          f"➖➖➖➖➖➖➖➖➖➖➖➖➖\n"
                                          f"🎁 Товар: <code>{get_position['position_name']}</code>\n"
                                          f"📦 Количество: <code>{get_count}шт</code>\n"
-                                         f"💰 Сумма к покупке: <code>{amount_pay}₽</code>",
+                                         f"💰 Сумма к покупке: <code>{amount_pay}₸</code>",
                                          reply_markup=products_confirm_finl(position_id, get_count, price=price, town_id=town_id))
                 else:
                     await message.answer(f"<b>❌ Недостаточно средств на счете.</b>\n" + send_message)
@@ -399,7 +399,7 @@ async def user_purchase_confirm(call: CallbackQuery, state: FSMContext):
                 await call.message.answer(f"<b>✅ Вы успешно купили товар(ы)</b>\n"
                                           f"➖➖➖➖➖➖➖➖➖➖➖➖➖\n"
                                           f"🧾 Чек: <code>#{receipt}</code>\n"
-                                          f"🎁 Товар: <code>{get_position['position_name']} | {get_count}шт | {amount_pay}₽</code>\n"
+                                          f"🎁 Товар: <code>{get_position['position_name']} | {get_count}шт | {amount_pay}₸</code>\n"
                                           f"🕰 Дата покупки: <code>{buy_time}</code>",
                                           reply_markup=menu_frep(call.from_user.id))
             else:

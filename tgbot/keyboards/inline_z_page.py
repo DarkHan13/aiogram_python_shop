@@ -282,7 +282,7 @@ def position_edit_open_fp(remover, category_id):
         if count < cpage:
             get_items = get_itemsx(position_id=get_positions[a]['position_id'])
             keyboard.add(ikb(
-                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₽ | {len(get_items)} шт",
+                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₸ | {len(get_items)} шт",
                 callback_data=f"position_edit:{get_positions[a]['position_id']}:{remover}:{category_id}"))
         count += 1
 
@@ -319,7 +319,7 @@ def position_edit_next_page_fp(remover, category_id):
         if count < cpage:
             get_items = get_itemsx(position_id=get_positions[a]['position_id'])
             keyboard.add(ikb(
-                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₽ | {len(get_items)} шт",
+                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₸ | {len(get_items)} шт",
                 callback_data=f"position_edit:{get_positions[a]['position_id']}:{remover}:{category_id}"))
         count += 1
 
@@ -349,7 +349,7 @@ def position_edit_back_page_fp(remover, category_id):
         if count < cpage:
             get_items = get_itemsx(position_id=get_positions[a]['position_id'])
             keyboard.add(ikb(
-                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₽ | {len(get_items)} шт",
+                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₸ | {len(get_items)} шт",
                 callback_data=f"position_edit:{get_positions[a]['position_id']}:{remover}:{category_id}"))
         count += 1
 
@@ -478,7 +478,7 @@ def products_add_position_open_fp(remover, category_id, town_id):
         if count < cpage:
             get_items = get_itemsx(position_id=get_positions[a]['position_id'], town_id=town_id)
             keyboard.add(ikb(
-                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₽ | {len(get_items)} шт",
+                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₸ | {len(get_items)} шт",
                 callback_data=f"products_add_position:{get_positions[a]['position_id']}:{category_id}:{town_id}"))
         count += 1
 
@@ -515,7 +515,7 @@ def products_add_position_next_page_fp(remover, category_id):
         if count < cpage:
             get_items = get_itemsx(position_id=get_positions[a]['position_id'])
             keyboard.add(ikb(
-                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₽ | {len(get_items)} шт",
+                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₸ | {len(get_items)} шт",
                 callback_data=f"products_add_position:{get_positions[a]['position_id']}:{category_id}"))
         count += 1
 
@@ -545,7 +545,7 @@ def products_add_position_back_page_fp(remover, category_id):
         if count < cpage:
             get_items = get_itemsx(position_id=get_positions[a]['position_id'])
             keyboard.add(ikb(
-                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₽ | {len(get_items)} шт",
+                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₸ | {len(get_items)} шт",
                 callback_data=f"products_add_position:{get_positions[a]['position_id']}:{category_id}"))
         count += 1
 
@@ -681,7 +681,7 @@ def products_item_position_open_fp(remover, category_id, town_id):
             print(f"work {count}")
             get_items = get_itemsx(position_id=get_positions[a]['position_id'], town_id=town_id)
             keyboard.add(ikb(
-                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₽ | {len(get_items)} шт",
+                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₸ | {len(get_items)} шт",
                 callback_data=f"buy_position_open:{get_positions[a]['position_id']}:{remover}:{category_id}:{town_id}"))
         count += 1
 
@@ -720,7 +720,7 @@ def products_item_position_next_page_fp(remover, category_id, town_id):
         if count < cpage:
             get_items = get_itemsx(position_id=get_positions[a]['position_id'], town_id=town_id)
             keyboard.add(ikb(
-                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₽ | {len(get_items)} шт",
+                f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₸ | {len(get_items)} шт",
                 callback_data=f"buy_position_open:{get_positions[a]['position_id']}:{remover}:{category_id}:{town_id}"))
         count += 1
 
@@ -750,7 +750,7 @@ def buy_position_return_page_fp(remover, category_id, town_id):
         if count < cpage:
             get_items = get_itemsx(position_id=get_positions[a]['position_id'], town_id=town_id)
             keyboard.add(
-                ikb(f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₽ | {len(get_items)} шт",
+                ikb(f"{get_positions[a]['position_name']} | {get_positions[a]['position_price']}₸ | {len(get_items)} шт",
                     callback_data=f"buy_position_open:{get_positions[a]['position_id']}:{remover}:{category_id}:{town_id}"))
         count += 1
 

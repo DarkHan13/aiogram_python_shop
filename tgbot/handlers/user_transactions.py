@@ -55,7 +55,7 @@ async def refill_get(message: Message, state: FSMContext):
                 await cache_message.edit_text(get_message, reply_markup=refill_bill_finl(get_link, receipt, get_way))
         else:
             await cache_message.edit_text(f"<b>❌ Неверная сумма пополнения</b>\n"
-                                          f"▶ Cумма не должна быть меньше <code>{min_input_qiwi}₽</code> и больше <code>300 000₽</code>\n"
+                                          f"▶ Cумма не должна быть меньше <code>{min_input_qiwi}₸</code> и больше <code>300 000₸</code>\n"
                                           f"💰 Введите сумму для пополнения средств")
     else:
         await message.answer("<b>❌ Данные были введены неверно.</b>\n"
@@ -126,11 +126,11 @@ async def refill_success(call: CallbackQuery, receipt, amount, get_way):
                  user_balance=get_user['user_balance'] + amount,
                  user_refill=get_user['user_refill'] + amount)
 
-    await call.message.edit_text(f"<b>💰 Вы пополнили баланс на сумму <code>{amount}₽</code>. Удачи ❤\n"
+    await call.message.edit_text(f"<b>💰 Вы пополнили баланс на сумму <code>{amount}₸</code>. Удачи ❤\n"
                                  f"🧾 Чек: <code>#{receipt}</code></b>")
 
     await send_admins(
         f"👤 Пользователь: <b>@{get_user['user_login']}</b> | <a href='tg://user?id={get_user['user_id']}'>{get_user['user_name']}</a> | <code>{get_user['user_id']}</code>\n"
-        f"💰 Сумма пополнения: <code>{amount}₽</code>\n"
+        f"💰 Сумма пополнения: <code>{amount}₸</code>\n"
         f"🧾 Чек: <code>#{receipt}</code>"
     )
