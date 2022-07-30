@@ -217,8 +217,7 @@ class QiwiAPI(AsyncClass):
             receipt = str(int(time.time() * 100))
             if get_way == "Form":
                 qiwi = QiwiP2P(self.secret)
-                bill = myBill(auth_key=self.secret, bill_id=receipt, amount=get_amount, comment=receipt, currency='KZT')
-                # bill = qiwi.bill(bill_id=receipt, amount=get_amount, comment=receipt, currency='KZT')
+                bill = qiwi.bill(bill_id=receipt, amount=get_amount, comment=receipt, currency='RUB')
                 send_requests = bill.pay_url
 
                 return_message = f"<b>🆙 Пополнение баланса</b>\n" \

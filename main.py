@@ -14,7 +14,7 @@ from tgbot.services.api_session import RequestsSession
 from tgbot.services.api_sqlite import create_dbx
 from tgbot.utils.misc.bot_commands import set_commands
 from tgbot.utils.misc.bot_logging import bot_logger
-from tgbot.utils.misc_functions import check_update, check_bot_data, on_startup_notify, update_profit_day, \
+from tgbot.utils.misc_functions import check_bot_data, on_startup_notify, update_profit_day, \
     update_profit_week
 
 colorama.init()
@@ -24,7 +24,6 @@ colorama.init()
 async def scheduler_start():
     scheduler.add_job(update_profit_week, "cron", day_of_week="mon", hour=00, minute=1)
     scheduler.add_job(update_profit_day, "cron", hour=00)
-    scheduler.add_job(check_update, "cron", hour=00)
 
 
 # Выполнение функции после запуска бота
@@ -40,7 +39,6 @@ async def on_startup(dp: Dispatcher):
 
     bot_logger.exception("BOT WAS STARTED")
     print(Fore.LIGHTYELLOW_EX + "~~~~~ Bot was started ~~~~~")
-    print(Fore.LIGHTBLUE_EX + "~~~~~ TG developer: @djimbox ~~~~~")
     print(Fore.RESET)
 
     if len(get_admins()) == 0: print("***** ENTER ADMIN ID IN settings.ini *****")

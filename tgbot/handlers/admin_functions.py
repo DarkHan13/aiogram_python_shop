@@ -99,7 +99,7 @@ async def functions_profile_purchases(call: CallbackQuery, state: FSMContext):
             link_items = await upload_text(call, purchases['purchase_item'])
 
             await call.message.answer(f"<b>🧾 Чек: <code>#{purchases['purchase_receipt']}</code></b>\n"
-                                      f"🎁 Товар: <code>{purchases['purchase_position_name']} | {purchases['purchase_count']}шт | {purchases['purchase_price']}₸</code>\n"
+                                      f"🎁 Товар: <code>{purchases['purchase_position_name']} | {purchases['purchase_count']}шт | {purchases['purchase_price']}₽</code>\n"
                                       f"🕰 Дата покупки: <code>{purchases['purchase_date']}</code>\n"
                                       f"🔗 Товары: <a href='{link_items}'>кликабельно</a>")
 
@@ -192,9 +192,9 @@ async def functions_profile_balance_add_get(message: Message, state: FSMContext)
 
             await message.answer(
                 f"<b>✅ Пользователю <a href='tg://user?id={get_user['user_id']}'>{get_user['user_name']}</a> "
-                f"выдано <code>{message.text}₸</code></b>")
+                f"выдано <code>{message.text}₽</code></b>")
 
-            await message.bot.send_message(user_id, f"<b>💰 Вам было выдано <code>{message.text}₸</code></b>")
+            await message.bot.send_message(user_id, f"<b>💰 Вам было выдано <code>{message.text}₽</code></b>")
             await message.answer(open_profile_search(user_id), reply_markup=profile_search_finl(user_id))
         else:
             await message.answer("<b>❌ Сумма выдачи не может быть меньше 1 и больше 1 000 000 000</b>\n"
@@ -217,7 +217,7 @@ async def functions_profile_balance_set_get(message: Message, state: FSMContext)
 
             await message.answer(
                 f"<b>✅ Пользователю <a href='tg://user?id={get_user['user_id']}'>{get_user['user_name']}</a> "
-                f"изменён баланс на <code>{message.text}₸</code></b>")
+                f"изменён баланс на <code>{message.text}₽</code></b>")
 
             await message.answer(open_profile_search(user_id), reply_markup=profile_search_finl(user_id))
         else:
@@ -280,7 +280,7 @@ async def functions_receipt_search(message: Message, state: FSMContext):
                 f"<b>🧾 Чек: <code>#{get_refill['refill_receipt']}</code></b>\n"
                 "➖➖➖➖➖➖➖➖➖➖➖➖➖\n"
                 f"👤 Пользователь: <a href='tg://user?id={get_refill['user_id']}'>{get_refill['user_name']}</a> <code>({get_refill['user_id']})</code>\n"
-                f"💰 Сумма пополнения: <code>{get_refill['refill_amount']}₸</code>\n"
+                f"💰 Сумма пополнения: <code>{get_refill['refill_amount']}₽</code>\n"
                 f"{way_input}\n"
                 f"🏷 Комментарий: <code>{get_refill['refill_comment']}</code>\n"
                 f"🕰 Дата пополнения: <code>{get_refill['refill_date']}</code>"
@@ -296,11 +296,11 @@ async def functions_receipt_search(message: Message, state: FSMContext):
                 f"👤 Пользователь: <a href='tg://user?id={get_purchase['user_id']}'>{get_purchase['user_name']}</a> <code>({get_purchase['user_id']})</code>\n"
                 f"🏷 Название товара: <code>{get_purchase['purchase_position_name']}</code>\n"
                 f"📦 Куплено товаров: <code>{get_purchase['purchase_count']}шт</code>\n"
-                f"💰 Цена 1-го товара: <code>{get_purchase['purchase_price_one']}₸</code>\n"
-                f"💸 Сумма покупки: <code>{get_purchase['purchase_price']}₸</code>\n"
+                f"💰 Цена 1-го товара: <code>{get_purchase['purchase_price_one']}₽</code>\n"
+                f"💸 Сумма покупки: <code>{get_purchase['purchase_price']}₽</code>\n"
                 f"🔗 Товары: <a href='{link_items}'>кликабельно</a>\n"
-                f"🔻 Баланс до покупки: <code>{get_purchase['balance_before']}₸</code>\n"
-                f"🔺 Баланс после покупки: <code>{get_purchase['balance_after']}₸</code>\n"
+                f"🔻 Баланс до покупки: <code>{get_purchase['balance_before']}₽</code>\n"
+                f"🔺 Баланс после покупки: <code>{get_purchase['balance_after']}₽</code>\n"
                 f"🕰 Дата покупки: <code>{get_purchase['purchase_date']}</code>"
             )
             return
