@@ -36,4 +36,4 @@ def get_admins():
 
 
 # УДАЛИШЬ ИЛИ ИЗМЕНИШЬ ССЫЛКИ НА ДОНАТ, КАНАЛ И ТЕМУ БОТА - КАСТРИРУЮ БЛЯТЬ
-BOT_DESCRIPTION = f"Создатель @DarkhanMUR123    "
+BOT_DESCRIPTION = f""
