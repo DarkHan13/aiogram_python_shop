@@ -1,7 +1,9 @@
+import json
 import typing
 from pyqiwip2p.p2p_types import Bill
 import httpx
 from pyqiwip2p.p2p_types import QiwiDatetime, QiwiCustomer
+from types import SimpleNamespace
 
 
 def myBill(bill_id="", amount="", comment="", currency='KZT',
@@ -47,3 +49,18 @@ def myBill(bill_id="", amount="", comment="", currency='KZT',
     )
     qiwi_response = Bill(qiwi_raw_response, alt)
     return qiwi_response
+
+
+def check_bill(bill_id, auth_key):
+    qiwi_request_headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {auth_key}",
+    }
+
+    qiwi_raw_response = httpx.Client().get(
+        f"https://api.qiwi.com/partner/bill/v1/bills/{bill_id}",
+        headers=qiwi_request_headers,
+    )
+
+    response = json.loads(qiwi_raw_response.text, object_hook=lambda d: SimpleNamespace(**d))
+    return response

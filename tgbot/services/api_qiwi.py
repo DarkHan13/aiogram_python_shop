@@ -3,6 +3,7 @@ import asyncio
 import json
 import time
 from tgbot.services.myQiwiP2P import myBill
+from tgbot.services.myQiwiP2P import check_bill
 from aiohttp import ClientConnectorCertificateError
 from async_class import AsyncClass
 from pyqiwip2p import QiwiP2P
@@ -264,11 +265,12 @@ class QiwiAPI(AsyncClass):
 
     # Проверка платежа по форме
     async def check_form(self, receipt):
-        qiwi_p2p = QiwiP2P(self.secret)
-        get_pay = qiwi_p2p.check(bill_id=receipt)
-
-        pay_status = get_pay.status  # Получение статуса платежа
-        pay_amount = int(float(get_pay.amount))  # Получение суммы платежа в рублях
+        get_pay = check_bill(receipt, self.secret)
+        # qiwi_p2p = QiwiP2P(self.secret)
+        # get_pay = qiwi_p2p.check(bill_id=receipt)
+        print(get_pay)
+        pay_status = get_pay.status.value  # Получение статуса платежа
+        pay_amount = int(float(str(get_pay.amount.value)))  # Получение суммы платежа в рублях
 
         return pay_status, pay_amount
 
